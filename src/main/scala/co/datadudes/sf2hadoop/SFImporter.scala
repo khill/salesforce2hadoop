@@ -48,7 +48,7 @@ class SFImporter(recordSchemas: Map[String, Schema],
       s"SELECT $fieldList FROM $recordType ORDER BY CreatedDate DESC"  
     } else {
       val fieldList = getFieldNames(schema).mkString(",")
-      s"SELECT $fieldList FROM $recordType where CreatedDate > LAST_N_MONTHS:$months ORDER BY CreatedDate DESC"
+      s"SELECT $fieldList FROM $recordType where CreatedDate = LAST_N_MONTHS:$months ORDER BY CreatedDate DESC"
     }
   }
 
